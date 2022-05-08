@@ -15,7 +15,7 @@ window.onload = function () {
 
     push.addEventListener("click", function () {
         var x = prompt("Vad ska vi lägga på stacken?");
-        stack.push(x);
+        stack.push();
         display.innerHTML = x;
     });
 

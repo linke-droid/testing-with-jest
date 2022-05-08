@@ -34,3 +34,37 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.accept();
     });
 });
+
+// mina tester nedanför 
+
+test("The stack should remove the last element", async () => {
+    let button = await driver.findElement(By.id('peek'));
+    await button.click();
+    let stack = await driver.findElement(By.id('top_of_stack')).getText();
+    expect(stack).toEqual("Bananer");
+});
+
+describe('"Clicking "poppa till stacken"', () => {
+    it('should open a prompt box', async () => {
+        let button = await driver.findElement(By.id('pop'));
+        await button.click();
+        let alert = await driver.switchTo().alert();
+        await alert.accept();
+    });
+});
+
+describe(' "Input from push button element and check if  span element has the same value"', () => {
+    it('should open a prompt box', async () => {
+        let push = await driver.findElement(By.id('push'));
+        await push.click();
+
+        // store the alert in a variable 
+        let alert = await driver.switchTo().alert();
+        // type your message 
+        await alert.sendKeys("Bananer");
+        // press the ok button
+        await alert.accept();
+        let pop = await driver.findElement(By.id('top_of_stack')).getText();
+        expect(pop).toEqual("Bananer");
+    });
+});
