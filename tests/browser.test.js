@@ -36,10 +36,10 @@ describe('Clicking "Pusha till stacken"', () => {
 });
 
 // mina tester nedanför 
-
 test("The stack should remove the last element", async () => {
     let button = await driver.findElement(By.id('peek'));
     await button.click();
+
     let stack = await driver.findElement(By.id('top_of_stack')).getText();
     expect(stack).toEqual("Bananer");
 });
@@ -48,6 +48,7 @@ describe('"Clicking "poppa till stacken"', () => {
     it('should open a prompt box', async () => {
         let button = await driver.findElement(By.id('pop'));
         await button.click();
+
         let alert = await driver.switchTo().alert();
         await alert.accept();
     });
@@ -64,7 +65,8 @@ describe(' "Input from push button element and check if  span element has the sa
         await alert.sendKeys("Bananer");
         // press the ok button
         await alert.accept();
-        let pop = await driver.findElement(By.id('top_of_stack')).getText();
-        expect(pop).toEqual("Bananer");
+
+        let top = await driver.findElement(By.id('top_of_stack')).getText();
+        expect(top).toEqual("Bananer");
     });
 });

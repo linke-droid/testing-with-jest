@@ -21,7 +21,7 @@ test('peek on stack with two or more elements returns the top element', () => {
 // mina tester här under //
 test('pop on stack returns the last element from an array and removes it', () => {
     stack.push(1);
-    stack.push("wow");
     stack.push(42);
-    expect(stack.peek()).toBe(42);
+    stack.pop()
+    expect(stack.peek()).toBe(1);
 });
